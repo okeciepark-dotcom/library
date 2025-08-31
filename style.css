@@ -8,7 +8,7 @@ body{
 
 /* Header z logo */
 header{ text-align:center; padding:20px 16px }
-.header__logo{ max-width:220px; height:auto }
+.header__logo{ max-width:120px; height:auto }
 
 /* Kontener główny z formularzem */
 main{ flex:1; display:flex; align-items:center; justify-content:center; padding:24px }
@@ -37,3 +37,4 @@ footer a:hover{ text-decoration:underline }
 /* Pomocnicze ukrywanie elementów do czasu wczytania config.js */
 [data-hide-until-ready]{ visibility:hidden }
 .ready [data-hide-until-ready]{ visibility:visible }
+
