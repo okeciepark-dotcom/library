@@ -1,0 +1,39 @@
+/* Reset i typografia */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  display:flex; flex-direction:column; min-height:100vh;
+  background:#f7f7f7; color:#333; font:16px/1.5 Arial, sans-serif;
+}
+
+/* Header z logo */
+header{ text-align:center; padding:20px 16px }
+.header__logo{ max-width:220px; height:auto }
+
+/* Kontener główny z formularzem */
+main{ flex:1; display:flex; align-items:center; justify-content:center; padding:24px }
+.form-card{
+  width:100%; max-width:460px; background:#fff; border-radius:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,.1); padding:28px;
+}
+.form-card h1{ font-size:1.4rem; text-align:center; margin-bottom:16px; color:#222 }
+label{ display:block; margin:12px 0 6px; font-weight:700; font-size:.92rem }
+input,select,textarea,button{
+  width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:10px; font-size:1rem;
+}
+input:focus,select:focus,textarea:focus{ outline:none; border-color:#0066cc }
+button{
+  margin-top:18px; background:#0066cc; color:#fff; border:none; cursor:pointer; transition:background .2s
+}
+button:hover{ background:#004a99 }
+
+/* Stopka */
+footer{
+  text-align:center; padding:16px; font-size:.9rem; background:#f0f0f0; border-top:1px solid #ddd
+}
+footer a{ color:#0066cc; text-decoration:none }
+footer a:hover{ text-decoration:underline }
+
+/* Pomocnicze ukrywanie elementów do czasu wczytania config.js */
+[data-hide-until-ready]{ visibility:hidden }
+.ready [data-hide-until-ready]{ visibility:visible }

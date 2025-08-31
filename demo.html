@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formularz – Okęcie Park</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script defer src="./config.js"></script>
+  <script>
+    // Po wczytaniu config.js uzupełniamy UI
+    document.addEventListener("DOMContentLoaded", () => {
+      const cfg = window.OP_CONFIG || {};
+      // Ustaw logo
+      const logo = document.getElementById("op-logo");
+      if (logo && cfg.logoUrl) logo.src = cfg.logoUrl;
+
+      // Stopka: nazwa, mail, privacy link
+      const org = document.getElementById("op-org");
+      const mail = document.getElementById("op-mail");
+      const privacy = document.getElementById("op-privacy");
+      if (org && cfg.orgName) org.textContent = cfg.orgName;
+      if (mail && cfg.orgEmail) { mail.textContent = cfg.orgEmail; mail.href = `mailto:${cfg.orgEmail}`; }
+      if (privacy && cfg.privacyUrl) privacy.href = cfg.privacyUrl;
+
+      // Odsłoń elementy dopiero po konfiguracji
+      document.documentElement.classList.add("ready");
+    });
+  </script>
+</head>
+<body>
+
+  <header>
+    <img id="op-logo" class="header__logo" alt="Logo" data-hide-until-ready />
+  </header>
+
+  <main>
+    <form class="form-card" novalidate>
+      <h1>Formularz kontaktowy</h1>
+
+      <label for="name">Imię i nazwisko</label>
+      <input id="name" name="name" type="text" required />
+
+      <label for="email">Adres e-mail</label>
+      <input id="email" name="email" type="email" required />
+
+      <label for="message">Wiadomość</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+
+      <button type="submit">Wyślij</button>
+    </form>
+  </main>
+
+  <footer data-hide-until-ready>
+    <p>© <span id="op-org">Okęcie Park</span></p>
+    <p>Kontakt: <a id="op-mail" href="#">email</a></p>
+    <p><a id="op-privacy" href="#" target="_blank" rel="noopener">Polityka prywatności</a></p>
+  </footer>
+
+</body>
+</html>
